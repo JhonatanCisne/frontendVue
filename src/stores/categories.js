@@ -7,13 +7,13 @@ export const useCategoriesStore = defineStore('categories', ()=>{
     const loading = ref(false)
     const error = ref(null)
     
-    async function fecthProducts() {
+    async function fecthCategories() {
         loading.value=true
         error.value=null
 
         try{
             const response = await api.get('/categories')
-            useCategoriesStore.value=response.data.data
+            categories.value=response.data.data
         }catch(err){
             error.value = err.userMessage
             throw err
@@ -22,11 +22,11 @@ export const useCategoriesStore = defineStore('categories', ()=>{
         }
     }
 
-    async function createCategory(product){
+    async function createCategory(category){
         return (await api.post('/categories', category)).data
     }
 
-    async function updateCategory(id,product){
+    async function updateCategory(id,category){
         return (await api.put(`/categories/${id}`, category)).data
     }
 
@@ -42,7 +42,7 @@ export const useCategoriesStore = defineStore('categories', ()=>{
         categories,
         loading,
         error,
-        fecthProducts,
+        fecthCategories,
         createCategory,
         updateCategory,
         deleteCategory,
