@@ -1,6 +1,6 @@
 <script setup>
 import {ref, onMounted} from 'vue'
-import {useCAtegoriesStore} from '../stores/categories'
+import {useCategoriesStore} from '../stores/categories'
 
 const store = useCategoriesStore()
 const name = ref('')

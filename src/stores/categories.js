@@ -7,7 +7,7 @@ export const useCategoriesStore = defineStore('categories', ()=>{
     const loading = ref(false)
     const error = ref(null)
     
-    async function fecthCategories() {
+    async function fetchCategories() {
         loading.value=true
         error.value=null
 
@@ -42,7 +42,7 @@ export const useCategoriesStore = defineStore('categories', ()=>{
         categories,
         loading,
         error,
-        fecthCategories,
+        fetchCategories,
         createCategory,
         updateCategory,
         deleteCategory,
